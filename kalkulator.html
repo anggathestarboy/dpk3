@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #2c3e50; 
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        #hasil {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #3498db; 
+        }
+
+        .tombol {
+            padding: 40px;
+            margin: 5px;
+            border: 1px solid #3498db; 
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #2980b9; 
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .tombol:hover {
+            background-color: #1f6391; 
+            border-color: #1f6391; 
+        }
+
+        .tombol.operasi {
+            background-color: #3453db;
+        }
+
+        .tombol.operasi:hover {
+            background-color: #2980b9; 
+        }
+
+        .tombol.jelas {
+            background-color: #e74c3c; 
+        }
+
+        .tombol.jelas:hover {
+            background-color: #c0392b; 
+        }
+
+        .tombol.samaDengan {
+            background-color: #f1c40f; 
+            color: black;
+        }
+
+        .tombol.samaDengan:hover {
+            background-color: #f39c12;
+        }
+
+        .kontainer-tombol {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+  
+    
+    <div class="container" style="text-align: center;">
+        <div id="hasil" style="color: white"></div>
+        <hr><br>
+        <div class="kontainer-tombol">
+            <button class="tombol" onclick="tambahkanAngka(9)">9</button>
+            <button class="tombol" onclick="tambahkanAngka(8)">8</button>
+            <button class="tombol" onclick="tambahkanAngka(7)">7</button>
+            <button class="tombol" onclick="tambahkanAngka(6)">6</button>
+            <button class="tombol" onclick="tambahkanAngka(5)">5</button>
+
+            <button class="tombol jelas" style="background-color: rgb(32, 14, 197);" onclick="bersihkanHasil()">C</button>
+            
+            <button class="tombol" onclick="tambahkanAngka(4)">4</button>
+            <button class="tombol" onclick="tambahkanAngka(3)">3</button>
+            <button class="tombol" onclick="tambahkanAngka(2)">2</button>
+            <button class="tombol" onclick="tambahkanAngka(1)">1</button>
+            <button class="tombol" onclick="tambahkanAngka(0)">0</button>
+            <button class="tombol samaDengan" onclick="hitung()" style="background-color: blue; color: white;">=</button>
+
+            <button class="tombol operasi" onclick="setOperasi('tambah')">+</button>
+            <button class="tombol operasi" onclick="setOperasi ('kurang')">−</button>
+            <button class="tombol operasi" onclick="setOperasi('kali')">×</button>
+            <button class="tombol operasi" onclick="setOperasi('bagi')">÷</button>
+            <button class="tombol operasi" onclick="setOperasi('modulus')">%</button>
+            <button class="tombol operasi" onclick="setOperasi('pangkat')">^</button>
+        </div>
+    </div>
+    <script>
+        let inputSekarang = '';
+        let inputSebelumnya = '';
+        let operasi = '';
+
+        function tambahkanAngka(angka) {
+            inputSekarang += angka;
+            perbaruiHasil();
+        }
+
+        function setOperasi(op) {
+            if (inputSekarang === '') return;
+            if (inputSebelumnya !== '') {
+                hitung();
+            }
+            operasi = op;
+            inputSebelumnya = inputSekarang + ' ' + simbolOperasi(op) + ' ';
+            inputSekarang = '';
+            perbaruiHasil();
+        }
+
+        function hitung() {
+            let hasil;
+            const angka1 = parseFloat(inputSebelumnya.split(' ')[0]);
+            const angka2 = parseFloat(inputSekarang);
+
+            if (isNaN(angka1) || isNaN(angka2)) return;
+
+            switch (operasi) {
+                case 'tambah':
+                    hasil = angka1 + angka2;
+                    break;
+                case 'kurang':
+                    hasil = angka1 - angka2;
+                    break;
+                case 'kali':
+                    hasil = angka1 * angka2;
+                    break;
+                case 'bagi':
+                    hasil = angka2 !== 0 ? angka1 / angka2 : 'Tidak bisa dibagi dengan nol';
+                    break;
+                case 'modulus':
+                    hasil = angka1 % angka2;
+                    break;
+                case 'pangkat':
+                    hasil = Math.pow(angka1, angka2);
+                    break;
+                default:
+                    hasil = 'Operasi tidak valid';
+            }
+
+            inputSekarang = hasil.toString();
+            inputSebelumnya = '';
+            operasi = '';
+            perbaruiHasil();
+        }
+
+        function bersihkanHasil() {
+            inputSekarang = '';
+            inputSebelumnya = '';
+            operasi = '';
+            perbaruiHasil();
+        }
+
+        function perbaruiHasil() {
+            document.getElementById('hasil').innerText = inputSebelumnya + inputSekarang;
+        }
+
+
+        if (hasil == Infinity) {
+            
+        }
+
+
+        function simbolOperasi(op) {
+            switch (op) {
+                case 'tambah':
+                    return '+';
+                case 'kurang':
+                    return '−';
+                case 'kali':
+                    return '×';
+                case 'bagi':
+                    return '÷';
+                case 'modulus':
+                    return '%';
+                case 'pangkat':
+                    return '^';
+                default:
+                    return '';
+            }
+        }
+    </script>
+</body>
+</html>
