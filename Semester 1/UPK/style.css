@@ -1,0 +1,124 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #ff6600;
+    color: white;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .left {
+    display: flex;
+    align-items: center;
+}
+.header .left .logo img {
+    width: 350px; /* Adjusted for 9:16 aspect ratio */
+    height: 120px; /* Adjusted for 9:16 aspect ratio */
+    margin-left: 25px;
+}
+.header h1 {
+    margin: 0;
+    display: none; /* Hide the text since it's part of the logo */
+}
+.header .right button {
+    background-color: white;
+    color: #ff6600;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 60px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.header .right button:hover {
+    background-color: #e65c00;
+    color: white;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+}
+.login-options {
+    text-align: center;
+    margin-top: 20px;
+}
+.login-options button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.login-options button:hover {
+    background-color: #e65c00;
+    transform: scale(1.05);
+}
+.footer {
+    background-color: #ff4800;
+    color: white;
+    padding: 12px;
+    display: flex;
+   
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.footer .footer  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.footer .copyright {
+    text-align: center;
+    width: 100%;
+   
+    font-size: 15px;
+}
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    width: 80%;
+}
+.feature {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+.feature:hover {
+    transform: translateY(-10px);
+}
+.feature img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+.feature h3 {
+    margin: 10px 0;
+    color: #ff6600;
+}
+.feature p {
+    color: #666;
+}
+
+

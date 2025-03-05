@@ -1,0 +1,204 @@
+<html>
+ <head>
+  <title>
+   Mall Universe
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <style>
+   body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #ff6600;
+    color: white;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .left {
+    display: flex;
+    align-items: center;
+}
+.header .left .logo img {
+    width: 350px; /* Adjusted for 9:16 aspect ratio */
+    height: 120px; /* Adjusted for 9:16 aspect ratio */
+    margin-left: 25px;
+}
+.header h1 {
+    margin: 0;
+    display: none; /* Hide the text since it's part of the logo */
+}
+.header .right button {
+    background-color: white;
+    color: #ff6600;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 60px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.header .right button:hover {
+    background-color: #e65c00;
+    color: white;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+}
+.login-options {
+    text-align: center;
+    margin-top: 20px;
+}
+.login-options button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.login-options button:hover {
+    background-color: #e65c00;
+    transform: scale(1.05);
+}
+.footer {
+    background-color: #ff4800;
+    color: white;
+    padding: 12px;
+    display: flex;
+   
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.footer .footer  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.footer .copyright {
+    text-align: center;
+    width: 100%;
+   
+    font-size: 15px;
+}
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    width: 80%;
+}
+.feature {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+.feature:hover {
+    transform: translateY(-10px);
+}
+.feature img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+.feature h3 {
+    margin: 10px 0;
+    color: #ff6600;
+}
+.feature p {
+    color: #666;
+}
+
+
+
+  </style>
+ </head>
+ <body>
+  <div class="header">
+   <div class="left">
+    <div class="logo">
+     <a href="#"><img alt="Logo of Mall Universe, a stylized shopping cart with the text 'Mall Universe'" src="logo.png"/></a>
+    </div>
+   </div>
+   <div class="right">
+    <button onclick="window.location.href='https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDbtsNdcKDdRRKTWwlfmFKMmmJcstXBcDwrvVszGJlfMrHgfklRJnBvxSSZgldrzVqLNxGg'">
+     Butuh Bantuan?
+    </button>
+   </div>
+  </div>
+  <div class="container">
+   <div class="login-options">
+    <button onclick="window.location.href='RegisterPenjual.html'">
+     Daftar Sebagai Penjual
+    </button>
+    <button onclick="window.location.href='RegisterPembeli.html'">
+     Daftar Sebagai Pembeli
+    </button>
+    <button onclick="window.location.href='RegisterKurir.html'">
+     Daftar Sebagai Kurir
+    </button>
+   </div>
+
+   <br><br><br><br>
+   <div class="features">
+    <div class="feature">
+     <img alt="Icon representing a wide variety of products" height="100" src="https://storage.googleapis.com/a1aa/image/kbrC4dnO1VZFJt4g2qKeSyY4eDvcEGMkfni8Nw2MEAvO7hjnA.jpg" width="100"/>
+     <h3>
+      Dapatkan Berbagai Produk Berkualitas
+     </h3>
+     <p>
+        Ayo, temukan dan dapatkan berbagai produk berkualitas terbaik untuk kebutuhan Anda!
+     </p>
+    </div>
+    <div class="feature">
+     <img alt="Icon representing secure payment options" height="100" src="https://storage.googleapis.com/a1aa/image/537tNRYhF4JWGF2wZFUPwFEQg9y2PtNaJ0IknhFYqQmaPc8E.jpg" width="100"/>
+     <h3>
+      Bertransaksi Dengan Aman
+     </h3>
+     <p>
+        Nikmati pengalaman bertransaksi yang aman dan terpercaya dengan perlindungan maksimal setiap saat!
+     </p>
+    </div>
+    <div class="feature">
+     <img alt="Icon representing fast delivery services" height="100" src="https://storage.googleapis.com/a1aa/image/67ft2xj7N6XXcKfsliofALUbqATRD4FYLwExwbuMRQqM7hjnA.jpg" width="100"/>
+     <h3>
+      Pengiriman Cepat
+     </h3>
+     <p>
+        Rasakan kemudahan dengan pengiriman cepat, tepat waktu, dan sampai tujuan dengan aman!
+     </p>
+    </div>
+   </div>
+  </div>
+  <div class="footer">
+   
+
+   <div class="copyright">
+    <p>
+     © 2024 Mall Universe. All rights reserved.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

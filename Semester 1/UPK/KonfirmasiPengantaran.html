@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pembeli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .map-container {
+            width: 100%;
+            height: 400px; /* Ukuran peta */
+        }
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 90%; /* Could be more or less, depending on screen size */
+            max-width: 500px; /* Max width for larger screens */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        .modal-content.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .btn-blue {
+            background-color: #007bff;
+        }
+        .btn-blue:hover {
+            background-color: #0056b3;
+        }
+        .btn-green {
+            background-color: #28a745;
+        }
+        .btn-green:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-orange-500 text-white p-4 flex justify-between items-center">
+        <a href="TampilanUtamaKurir.html"><div class="text-2xl font-bold">
+            Dashboard Kurir
+        </div></a>
+        <nav class="space-x-4">
+            <a class="hover:underline" href="TampilanKurir.html">Home</a>
+            <a class="hover:underline" href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDbtsNdcKDdRRKTWwlfmFKMmmJcstXBcDwrvVszGJlfMrHgfklRJnBvxSSZg">Butuh Bantuan?</a>
+        </nav>
+    </header>
+    <div class="flex p-6">
+        <main class="flex-1">
+            <div class="bg-white p-6 rounded shadow-md mb-6">
+                <h2 class="text-2xl font-bold mb-4">Tracking Pembeli</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-100 p-4 rounded shadow-md">
+                        <h3 class="text-xl font -bold mb-2">Biodata Pembeli</h3>
+                        <p class="text-gray-700 mb-2"><strong>Dari Toko:</strong> Laptop Universe</p>
+                        <p class="text-gray-700 mb-2"><strong>Nama Pembeli:</strong> Rizqi Anggara</p>
+                        <p class="text-gray-700 mb-2"><strong>Limit Waktu:</strong> 1 Hari</p>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="advan1.png" alt="Gambar Produk" class="small-image">
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded shadow-md mb-6">
+                <h2 class="text-2xl font-bold mb-4">Lokasi Tracking</h2>
+                <p class="text-gray-700 mb-2"><strong>Koordinat:</strong> <span class="font-bold">7°58'25.5"S 112°46'03.7"E</span></p>
+                <!-- Peta OpenStreetMap -->
+                <div id="map" class="map-container"></div>
+                <script>
+                    // Koordinat yang diberikan (dalam derajat desimal)
+                    var lat = -7.9737317;
+                    var lon = 112.7676902;
+
+                    // Inisialisasi peta
+                    var map = L.map('map').setView([lat, lon], 15); // Pusatkan peta pada koordinat
+
+                    // Menambahkan layer OpenStreetMap
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+
+                    // Menambahkan marker pada peta
+                    L.marker([lat, lon]).addTo(map)
+                        .bindPopup("<b>Lokasi Pembeli</b><br>7°58'25.5\"S 112°46'03.7\"E")
+                        .openPopup();
+                </script>
+                <p class="text-gray-600">Silakan lihat lokasi di peta di atas untuk mengetahui posisi terkini pembeli.</p>
+            </div>
+            <button id="completeOrderBtn" class="bg-green-500 text-white px-4 py-2 rounded">Pesanan Selesai</button>
+        </main>
+    </div>
+
+    <!-- Modal untuk upload gambar -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 class="text-xl font-bold mb-4">Upload Gambar Bukti</h2>
+            <input type="file" id="imageUpload" accept="image/*" class="mb-4">
+            <button id="submitImage" class="btn btn-blue">Kirim</button>
+        </div>
+    </div>
+
+    <script>
+        // Mendapatkan elemen modal
+        var modal = document.getElementById("uploadModal");
+        var btn = document.getElementById("completeOrderBtn");
+        var span = document.getElementById("closeModal");
+        var submitImage = document.getElementById("submitImage");
+        var imageUpload = document.getElementById("imageUpload");
+
+        // Ketika tombol ditekan, buka modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+            setTimeout(() => {
+                modal.querySelector('.modal-content').classList.add('show');
+            }, 10);
+        }
+
+        // Ketika pengguna menekan tombol close, tutup modal
+        span.onclick = function() {
+            modal.style.display = "none";
+            modal.querySelector('.modal-content').classList.remove('show');
+        }
+
+        // Ketika pengguna mengklik di luar modal, tutup modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                modal.querySelector('.modal-content').classList.remove('show');
+            }
+        }
+
+        // Ketika gambar di-upload
+        submitImage.onclick = function() {
+            if (imageUpload.files.length > 0) {
+                modal.querySelector('.modal-content').innerHTML = '<h2 class="text-xl font-bold mb-4">Selesai</h2><p>Terima kasih! Bukti telah di-upload.</p><a href="BatalPengantaran.html" class="btn btn-green">OK</a>';
+            }
+        }
+    </script>
+
+    <p style="text -align: center; background-color: #ff9800; color: white;">© 2024 Mall Universe. All rights reserved.</p>
+</body>
+</html>

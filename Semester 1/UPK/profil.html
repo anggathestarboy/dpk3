@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proses Pengiriman</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fc;
+    }
+
+    .header {
+      background-color: #f44b29;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 70px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-right: 160px;
+    }
+
+    .search-bar input {
+      width: 300px;
+      padding: 3px;
+      border: 2px solid #ffffff;
+      border-radius: 20px;
+      
+      outline: none;
+    }
+
+    .search-bar input::placeholder {
+      color: #bbb;
+    }
+
+    .search-bar i {
+      color: #ffffff;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #f44b29;
+      border-radius: 50%;
+    }
+
+    .cart a {
+      color: white;
+      font-size: 24px;
+      margin-left: 10px;
+    }
+
+    .panel-nav {
+      background-color: #f44b29;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .panel-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 30px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .panel-nav a:hover {
+      color: #f44b29;
+      border-bottom: 2px solid #f44b29;
+    }
+
+    .profile, .shipping {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile h3, .shipping h3 {
+      font-size: 24px;
+      text-align: center;
+      color: #f44b29;
+      margin-bottom: 20px;
+    }
+
+    .profile label, .shipping label {
+      font-size: 16px;
+      margin-bottom: 5px;
+      display: block;
+      color: #333;
+    }
+
+    .profile input, .shipping input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    .profile input:focus, .shipping input:focus {
+      border-color: #f44b29;
+    }
+
+    .profile button {
+      background-color: #f44b29;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .profile button:hover {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <a href="TampilanUtama.html"><img alt="Shopee Logo" src="Logo.png" width="200"></a>
+    <div class="search-bar">
+      <input placeholder='Coba cari "Laptop murah terbaru"' type="text">
+      <a href="advan.html"><i class="fas fa-search"></i></a>
+    </div>
+    <div class="cart">
+      <a href="keranjang.html"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+  </div>
+
+  <!-- Panel Navigasi -->
+  <div class="panel-nav">
+    <a href="profil.html">Profil</a>
+    <a href="pengiriman.html">Pengiriman</a>
+  </div>
+
+  <!-- Profil Section -->
+  <div class="profile" id="profile-section">
+    <h3>Profil Pengguna</h3>
+    <label for="username">Username:</label>
+    <input id="username" type="text" value="RizzzAnggara" readonly>
+
+    <label for="fullname">Nama Profil:</label>
+    <input id="fullname" type="text" value="Rizqi Anggara">
+
+    <label for="address">Alamat:</label>
+    <input id="address" type="text" value="Jl Ahmad Yani Karangrejo, Sukopuro, Jabung, Malang">
+
+    <button onclick="editProfile()">Simpan Perubahan</button>
+  </div>
+
+  
+
+  <script>
+    function editProfile() {
+      const username = document.getElementById('username').value;
+      const fullname = document.getElementById('fullname').value;
+      const address = document.getElementById('address').value;
+      console.log('Username:', username);
+      console.log('Full Name:', fullname);
+      console.log('Address:', address);
+    }
+  </script>
+</body>
+
+</html>

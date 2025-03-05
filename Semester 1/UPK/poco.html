@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detail Produk E-commerce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup.active {
+      display: block;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 5;
+    }
+
+    .popup-overlay.active {
+      display: block;
+    }
+
+    .header {
+      background-color: #ee4d2d;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header img {
+      height: 105px;
+    }
+
+    .header .search-bar {
+      display: flex;
+      align-items: center;
+      margin-right: 195px;
+    }
+
+    .header .search-bar input {
+      margin-right: 10px;
+      padding: 5px;
+      border: none;
+      border-radius: 3px;
+      width: 400px;
+    }
+
+    .header .cart {
+      font-size: 20px;
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <div class="header">
+    <a href="TampilanUtama.html"><img alt="Shopee Logo" src="Logo.png" width="270"></a>
+    <div class="search-bar">
+      <input placeholder='Coba cari  "Laptop murah terbaru"' type="text">
+      <a href="advan.html" style="color: white;"><i class="fas fa-search"></i></a>
+    </div>
+    <div class="cart">
+      <a href="keranjang.html" style="color: white;"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popup-overlay"></div>
+  <div class="popup" id="popup">
+    <p class="text-gray-800 text-lg font-semibold mb-4">
+      Apakah kamu ingin menambahkan produk ini ke keranjang?
+    </p>
+    <div class="flex justify-end space-x-4">
+      <button id="btn-no" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Tidak</button>
+      <button id="btn-yes" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600" style="background-color: #ee4d2d;">Iya</button>
+    </div>
+  </div>
+
+  <!-- Product Section -->
+  <div class="container mx-auto p-6">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="md:flex">
+        <div class="md:flex-shrink-0">
+          <img alt="Gambar produk" class="w-full h-96 object-cover md:w-96" src="iklanpcoco.webp" width="600" height="600" />
+        </div>
+        <div class="p-8">
+          <h1 class="text-3xl font-bold text-gray-900">Poco X3 NFC</h1>
+          <p class="mt-4 text-gray-600 text-lg">Poco X3 NFC adalah smartphone performa tinggi dengan layar 6,67 inci FHD+ DotDisplay yang mendukung refresh rate 120Hz untuk pengalaman visual yang mulus, ditenagai oleh prosesor Qualcomm Snapdragon 732G yang powerful, RAM hingga 6GB, dan penyimpanan internal hingga 128GB untuk mendukung aktivitas multitasking dan gaming. Dilengkapi kamera belakang quad 64MP dengan teknologi AI, kamera depan 20MP, serta fitur NFC untuk kemudahan transaksi digital, Poco X3 NFC juga memiliki baterai besar 5160mAh dengan dukungan fast charging 33W, menjadikannya pilihan tepat untuk kebutuhan hiburan dan produktivitas.</p>
+          <div class="mt-6 flex space-x-4">
+            <button id="btn-cart" class="flex items-center justify-center px-4 py-2 bg-green-500 text-white text-lg font-semibold rounded-md hover:bg-green-600" style="background-color: #fc350e;">
+              <i class="fas fa-shopping-cart mr-2"></i> Keranjang
+            </button>
+            <button class="flex items-center justify-center px-4 py-2 bg-blue-500 text-white text-lg font-semibold rounded-md hover:bg-blue-600" style="background-color: #f73009;">
+              <i class="fas fa-credit-card mr-2"></i> Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btnCart = document.getElementById('btn-cart');
+    const popup = document.getElementById('popup');
+    const popupOverlay = document.getElementById('popup-overlay');
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo = document.getElementById('btn-no');
+
+    // Show the popup
+    btnCart.addEventListener('click', () => {
+      popup.classList.add('active');
+      popupOverlay.classList.add('active');
+    });
+
+    // Close the popup when "No" is clicked
+    btnNo.addEventListener('click', () => {
+      popup.classList.remove('active');
+      popupOverlay.classList.remove('active');
+    });
+
+    // Change button text when "Yes" is clicked
+    btnYes.addEventListener('click', () => {
+      btnCart.innerHTML = '<i class="fas fa-check mr-2"></i> Sudah Ditambahkan';
+      popup.classList.remove('active');
+      popupOverlay.classList.remove('active');
+    });
+
+    // Close popup when overlay is clicked
+    popupOverlay.addEventListener('click', () => {
+      popup.classList.remove('active');
+      popupOverlay.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
