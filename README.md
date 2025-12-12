@@ -1,6 +1,6 @@
 # 📚 Kumpulan Tugas Kelas 10 – SMKN 6 Malang (Aksata)
 
-Repository ini berisi seluruh tugas yang telah saya kerjakan selama kelas 10 di **SMKN 6 Malang**, khususnya di jurusan **Pengembangan Perangkat Lunak dan Gim (PPLG) / Aksata**. Semua project dikumpulkan dan dirapikan untuk dokumentasi, portofolio, serta memudahkan proses pembelajaran di masa depan.
+Repository ini berisi seluruh tugas yang telah saya kerjakan selama kelas 10 di **SMKN 6 Malang**, khususnya di jurusan **Rekasaya Perangkat Lunak**. Semua project dikumpulkan dan dirapikan untuk dokumentasi, portofolio, serta memudahkan proses pembelajaran di masa depan.
 
 ---
 
