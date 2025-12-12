@@ -65,21 +65,6 @@ Berikut adalah kategori tugas dan project yang terdapat dalam repo ini:
 * Relasi tabel sederhana
 * Tugas perancangan database
 
----
-
-## 📁 Struktur Folder (Contoh)
-
-```
-tugas-kelas10-aksata/
-│ README.md
-│
-├── html-css/
-├── php-basic/
-├── php-crud/
-├── bootstrap/
-├── javascript/
-└── mini-projects/
-```
 
 ---
 
