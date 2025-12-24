@@ -57,7 +57,7 @@ Berikut adalah kategori tugas dan project yang terdapat dalam repo ini:
 * DOM Manipulation
 * Event Handling
 * Mini games
-* Project eksperimen canvas (jika ada)
+* Project eksperimen canvas
 
 ### 💾 **7. Database**
 
@@ -85,7 +85,7 @@ Selama kelas 10, beberapa teknologi dan tools yang digunakan antara lain:
 
 ## 🏆 Tentang Repo Ini
 
-Repo ini akan terus diperbarui seiring berjalannya semester dan tugas baru yang diberikan. Harapannya repository ini bisa menjadi gambaran perkembangan kemampuan saya selama belajar di SMKN 6 Malang jurusan PPLG.
+Repo ini akan terus diperbarui seiring berjalannya semester dan tugas baru yang diberikan. Harapannya repository ini bisa menjadi gambaran perkembangan kemampuan saya selama belajar di SMKN 6 Malang jurusan RPL.
 
 ---
 
