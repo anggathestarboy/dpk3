@@ -97,4 +97,4 @@ Jika ingin melihat project lain atau memberikan feedback, sangat dipersilakan!
 
 💼Pesan Terkhir Bagi Adik Adik Kelas
 
-*Berkaryalah dengan karya, bukan ucapan besar yang tiada artinya*
+*Berkaryalah dengan karya, bukan dengan ucapan besar yang tiada artinya*
