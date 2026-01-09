@@ -46,10 +46,10 @@ Berikut adalah kategori tugas dan project yang terdapat dalam repo ini:
 * Landing page sederhana
 * Website statis
 
-### 🛠️ **5. Project Mini / Tugas Besar**
+### 🛠️ **5. Project Mini**
 
 * Sistem pendaftaran ekstrakurikuler (PHP + Bootstrap)
-* Aplikasi sederhana menggunakan PHP Native
+* Sistem Perpustakaan digital dengan php native
 * Latihan aplikasi logika & perhitungan
 
 ### 🎮 **6. JavaScript Dasar**
